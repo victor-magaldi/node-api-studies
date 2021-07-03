@@ -42,3 +42,12 @@ server.put("/cursos/:index", function (req, res) {
 
   return res.json({ cursos: cursos });
 });
+
+// DELETE
+server.delete("/cursos/:index", function (req, res) {
+  const { index } = req.params;
+
+  cursos.splice(index, 1);
+
+  return res.json({ cursos: cursos });
+});
