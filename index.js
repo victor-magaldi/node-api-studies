@@ -12,7 +12,7 @@ server.use(express.json());
 //Request Body = {nome="victor" , teste:}
 
 const cursos = ["nodejs", "javasctipt", "react"];
-
+// READ
 server.get("/cursos/:id", function (req, res) {
   // http://localhost:3000/curso/4?name=victor
   console.log(req.query.name); // victor
@@ -27,9 +27,18 @@ server.get("/cursos", function (req, res) {
   return res.json({ cursos: cursos });
 });
 
+// CREATE
 server.post("/cursos", function (req, res) {
-  console.log(req.body);
   const { name } = req.body;
   cursos.push(name);
+  return res.json({ cursos: cursos });
+});
+
+// UPDATE
+server.put("/cursos/:index", function (req, res) {
+  const { index } = req.params;
+  const { name } = req.body;
+  cursos[index] = name;
+
   return res.json({ cursos: cursos });
 });
