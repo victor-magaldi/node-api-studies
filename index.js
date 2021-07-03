@@ -1,7 +1,11 @@
+const { json } = require("express");
 const express = require("express");
 
 const server = express();
 server.listen(3000);
+
+// para conseguir enviar um json por POST
+server.use(express.json());
 
 // queryParams = url?param1=teste&param2=teste2
 //RouteParams  = curso/2             2 seria o RouteParam
@@ -20,5 +24,12 @@ server.get("/cursos/:id", function (req, res) {
 });
 
 server.get("/cursos", function (req, res) {
+  return res.json({ cursos: cursos });
+});
+
+server.post("/cursos", function (req, res) {
+  console.log(req.body);
+  const { name } = req.body;
+  cursos.push(name);
   return res.json({ cursos: cursos });
 });
