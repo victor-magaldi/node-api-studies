@@ -1,2 +1,4 @@
 # node-api-studies
-repositório para testar e aprender mais sobre Node
+repositório para aprender e testar um pouco mais sobre Node JS
+
+
