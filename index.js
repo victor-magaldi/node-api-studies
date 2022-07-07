@@ -11,12 +11,11 @@ server.use(express.json());
 //RouteParams  = curso/2             2 seria o RouteParam
 //Request Body = {nome="victor" , teste:}
 
-const cursos = ["nodejs", "javasctipt", "react"];
+const cursos = ["nodejs", "javasctipt", "reactss"];
 
 // midleware Global
 // é chamado em todas rotas da sua aplicação
 server.use((req, res, next) => {
-  console.log(`REQ CHAMADA:${req.url}`);
   return next();
 });
 
@@ -39,6 +38,7 @@ function checkIndexCurso(req, res, next) {
 }
 
 server.get("/cursos", function (req, res) {
+  console.log("req", req)
   return res.json({ cursos: cursos });
 });
 
@@ -56,6 +56,8 @@ server.get("/cursos/:id", checkIndexCurso, function (req, res) {
 // CREATE
 server.post("/cursos", checkCurso, function (req, res) {
   const { name } = req.body;
+
+  console.log("teste")
   cursos.push(name);
   return res.json({ cursos: cursos });
 });
