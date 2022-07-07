@@ -11,7 +11,7 @@ server.use(express.json());
 //RouteParams  = curso/2             2 seria o RouteParam
 //Request Body = {nome="victor" , teste:}
 
-const cursos = ["nodejs", "javasctipt", "reactss"];
+const cursos = ["nodejs", "javasctipt", "react"];
 
 // midleware Global
 // é chamado em todas rotas da sua aplicação
